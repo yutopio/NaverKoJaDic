@@ -17,6 +17,7 @@
             <xs:sequence>
               <xs:element name="ID" type="xs:int" />
               <xs:element name="Reading" type="xs:string" />
+              <xs:element name="ItemNumber" type="xs:int" minOccurs="0" />
               <xs:element name="Hanja" type="xs:string" minOccurs="0" />
             </xs:sequence>
           </xs:complexType>

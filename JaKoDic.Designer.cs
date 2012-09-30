@@ -322,6 +322,8 @@ public partial class JaKoDic : global::System.Data.DataSet {
 
         private global::System.Data.DataColumn columnReading;
 
+        private global::System.Data.DataColumn columnItemNumber;
+
         private global::System.Data.DataColumn columnHanja;
 
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -375,6 +377,14 @@ public partial class JaKoDic : global::System.Data.DataSet {
 
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        public global::System.Data.DataColumn ItemNumberColumn {
+            get {
+                return this.columnItemNumber;
+            }
+        }
+
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         public global::System.Data.DataColumn HanjaColumn {
             get {
                 return this.columnHanja;
@@ -418,11 +428,12 @@ public partial class JaKoDic : global::System.Data.DataSet {
 
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-        public WordRow AddWordRow(int ID, string Reading, string Hanja) {
+        public WordRow AddWordRow(int ID, string Reading, int ItemNumber, string Hanja) {
             WordRow rowWordRow = ((WordRow)(this.NewRow()));
             object[] columnValuesArray = new object[] {
                     ID,
                     Reading,
+                    ItemNumber,
                     Hanja};
             rowWordRow.ItemArray = columnValuesArray;
             this.Rows.Add(rowWordRow);
@@ -448,6 +459,7 @@ public partial class JaKoDic : global::System.Data.DataSet {
         internal void InitVars() {
             this.columnID = base.Columns["ID"];
             this.columnReading = base.Columns["Reading"];
+            this.columnItemNumber = base.Columns["ItemNumber"];
             this.columnHanja = base.Columns["Hanja"];
         }
 
@@ -458,6 +470,8 @@ public partial class JaKoDic : global::System.Data.DataSet {
             base.Columns.Add(this.columnID);
             this.columnReading = new global::System.Data.DataColumn("Reading", typeof(string), null, global::System.Data.MappingType.Element);
             base.Columns.Add(this.columnReading);
+            this.columnItemNumber = new global::System.Data.DataColumn("ItemNumber", typeof(int), null, global::System.Data.MappingType.Element);
+            base.Columns.Add(this.columnItemNumber);
             this.columnHanja = new global::System.Data.DataColumn("Hanja", typeof(string), null, global::System.Data.MappingType.Element);
             base.Columns.Add(this.columnHanja);
             this.Constraints.Add(new global::System.Data.UniqueConstraint("Constraint1", new global::System.Data.DataColumn[] {
@@ -934,6 +948,22 @@ public partial class JaKoDic : global::System.Data.DataSet {
 
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        public int ItemNumber {
+            get {
+                try {
+                    return ((int)(this[this.tableWord.ItemNumberColumn]));
+                }
+                catch (global::System.InvalidCastException e) {
+                    throw new global::System.Data.StrongTypingException("The value for column \'ItemNumber\' in table \'Word\' is DBNull.", e);
+                }
+            }
+            set {
+                this[this.tableWord.ItemNumberColumn] = value;
+            }
+        }
+
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         public string Hanja {
             get {
                 try {
@@ -946,6 +976,18 @@ public partial class JaKoDic : global::System.Data.DataSet {
             set {
                 this[this.tableWord.HanjaColumn] = value;
             }
+        }
+
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        public bool IsItemNumberNull() {
+            return this.IsNull(this.tableWord.ItemNumberColumn);
+        }
+
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        public void SetItemNumberNull() {
+            this[this.tableWord.ItemNumberColumn] = global::System.Convert.DBNull;
         }
 
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
